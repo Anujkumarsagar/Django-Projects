@@ -1,0 +1,178 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - CloudFlow</title>
+    <link rel="stylesheet" href="{% static 'contact.css' %}">
+</head>
+<body>
+    <div class="bg-gradient"></div>
+
+    <nav>
+        <div class="logo">CloudFlow</div>
+        <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+        </ul>
+        <button class="cta-btn">Get Started</button>
+    </nav>
+
+    <div class="contact-container">
+        <div class="contact-wrapper">
+            <!-- Left Column - Contact Info -->
+            <div class="contact-info">
+                <h1>Let's Start a Conversation</h1>
+                <p>Have a question or want to learn more about CloudFlow? We're here to help. Reach out to us and we'll get back to you within 24 hours.</p>
+                
+                <div class="info-cards">
+                    <div class="info-card">
+                        <div class="info-icon">📧</div>
+                        <div class="info-text">
+                            <h3>Email Us</h3>
+                            <p>hello@cloudflow.com</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📞</div>
+                        <div class="info-text">
+                            <h3>Call Us</h3>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">📍</div>
+                        <div class="info-text">
+                            <h3>Visit Us</h3>
+                            <p>123 Innovation Drive, San Francisco, CA 94102</p>
+                        </div>
+                    </div>
+
+                    <div class="info-card">
+                        <div class="info-icon">💬</div>
+                        <div class="info-text">
+                            <h3>Live Chat</h3>
+                            <p>Available Mon-Fri, 9AM-6PM PST</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Column - Contact Form -->
+            <div class="contact-form-container">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="firstName">First Name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" name="company">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a subject</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="sales">Sales Question</option>
+                            <option value="support">Technical Support</option>
+                            <option value="partnership">Partnership Opportunity</option>
+                            <option value="feedback">Feedback</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">Send Message</button>
+                    
+                    <div class="success-message" id="successMessage">
+                        ✓ Thank you! Your message has been sent successfully. We'll get back to you soon.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 CloudFlow. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Form submission handler
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = {
+                firstName: document.getElementById('firstName').value,
+                lastName: document.getElementById('lastName').value,
+                email: document.getElementById('email').value,
+                company: document.getElementById('company').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            // Simulate form submission
+            console.log('Form submitted:', formData);
+
+            // Show success message
+            const successMessage = document.getElementById('successMessage');
+            successMessage.classList.add('show');
+
+            // Reset form
+            this.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 5000);
+        });
+
+        // Add focus animation to form inputs
+        const inputs = document.querySelectorAll('input, textarea, select');
+        inputs.forEach(input => {
+            input.addEventListener('focus', function() {
+                this.parentElement.style.transform = 'translateY(-2px)';
+            });
+            
+            input.addEventListener('blur', function() {
+                this.parentElement.style.transform = 'translateY(0)';
+            });
+        });
+
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
