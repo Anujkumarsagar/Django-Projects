@@ -209,4 +209,4 @@ process:
 
 
 
-
+    Tailwind Integration : [Article Link](https://docs.chaicode.com/youtube/chai-aur-django/tailwind/)
