@@ -1,14 +1,18 @@
+
+
+{% extends "layout.html" %}
 {% load static %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact Us - CloudFlow</title>
+{% block title %}
+Contact Us - CloudFlow
+{% endblock title %}
+
+{% block css %}
     <link rel="stylesheet" href="{% static 'contact.css' %}">
-</head>
-<body>
+{% endblock css %}
+
+{% block content %}
+<div>
     <div class="bg-gradient"></div>
 
     <nav>
@@ -174,5 +178,5 @@
             });
         });
     </script>
-</body>
-</html>
+</div>
+{% endblock content %}
